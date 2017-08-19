@@ -1,2 +1,2 @@
 # NASAapp
-test app connectiong to the NASA image api
+test app connecting to the NASA image api
