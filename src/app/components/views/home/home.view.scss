@@ -1,0 +1,62 @@
+#item {
+    border: 1px solid rgb(170, 170, 170);
+    background-color: rgba(62, 62, 62, 0.85);
+    padding: 5px;
+    margin: 10px;
+}
+.thumb {
+    @extend #item;
+    text-align: center;
+    img {
+        width: 50%;
+    }
+}
+.link {
+    @extend #item;
+    a {
+        color: rgb(255, 255, 255);
+    }
+}
+
+.searchFilter {
+    background-color: rgb(57, 57, 57);
+    padding: 10px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+
+    .search {
+        width: 96%;
+        padding: 5px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    .filterArea {
+        display: none;
+        margin: 10px;
+    
+        ul {
+            list-style: none;
+        }
+        li {
+            margin: 5px;
+        }
+    }
+}
+
+.filterPointer {
+    font-family: FontAwesome;
+    font-style: normal;
+}
+.filterPointerDown {
+    @extend .filterPointer;
+}
+.filterPointerUp {
+    @extend .filterPointer;
+}
+.filterPointerDown::before {
+    content: "\f103"
+}
+.filterPointerUp::before {
+    content: "\f102"
+}

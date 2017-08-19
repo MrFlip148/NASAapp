@@ -1,0 +1,27 @@
+<form #f="ngForm" class="searchFilter" (ngSubmit)="getData(onSubmit(f.value))">
+    <input type="text" class="form-control" id="search-box" placeholder="Search" name="q" ngModel required>
+    <div (click)="toggleFilter();" class="filter">
+        <span class="filterPointerDown"></span>
+        Filters:
+    </div>
+    <div class="filterArea" >
+        <input type="checkbox" name="mt_I" [ngModel]=true>Image<br>
+        <input type="checkbox" name="mt_V" [ngModel]=true>Video<br>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!f.form.valid">Search</button>
+</form>
+
+<div class="content">
+    <div *ngFor="let i of data.collection.items">
+        <div *ngFor="let d of i.data">
+            <div *ngIf="d.media_type === 'video'" class="link">
+                <a [routerLink]="['/Video', d.nasa_id]" >{{d.title}}</a>
+            </div>
+            <div *ngIf="d.media_type === 'image'" class="thumb">
+                <a [routerLink]="['/Image', d.nasa_id]">
+                    <img *ngFor="let l of i.links" [src]="l.href" >
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
