@@ -27,30 +27,23 @@
     margin-bottom: 10px;
     font-size: 16px;
 }
-.filterArea {
-    display: none;
+
+.toggleArea ul {
     margin: 10px;
-}
-.filterArea ul {
     list-style: none;
 }
-.filterArea li {
+.toggleArea li {
     margin: 5px;
 }
-
-.filterPointer {
-    font-family: FontAwesome;
-    font-style: normal;
+.toggleArea {
+    display: none;
 }
-.filterPointerDown {
+.pointer {
     font-family: FontAwesome;
 }
-.filterPointerUp {
-    font-family: FontAwesome;
-}
-.filterPointerDown::before {
+.pDown::before {
     content: "\f103"
 }
-.filterPointerUp::before {
+.pUp::before {
     content: "\f102"
 }

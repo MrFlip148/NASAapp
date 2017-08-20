@@ -14,11 +14,9 @@ export class HomeViewComponent implements OnInit {
     private apiUrl = 'https://images-api.nasa.gov/search?q=';
     private query: string;
     yearRange: number[] = [2010, 2015];
-    
     data: any = {};
-
-    dataLoaded = false;
-    showFilter = false;
+    
+    toggled = false;
 
     constructor(
         private http: Http
@@ -27,26 +25,20 @@ export class HomeViewComponent implements OnInit {
     ngOnInit() {
         // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
         // Add 'implements OnInit' to the class.
-        this.getData('moon&media_type=image,video' + '&year_start=2010&year_end=2015');
+        this.getResult(this.apiUrl, 'moon&media_type=image,video&year_start=2010&year_end=2015');
     }
 
-    toggleFilter() {
-        $('.filterArea').toggle('down');
-        if (this.showFilter) {
-            $('.filterPointerUp').switchClass('filterPointerUp', 'filterPointerDown', 500, 'swing', this.showFilter = !this.showFilter);
-        } else {
-            $('.filterPointerDown').switchClass('filterPointerDown', 'filterPointerUp', 500, 'swing', this.showFilter = !this.showFilter);
-        }
+    getData(url: any, q: any) {
+        return this.http.get(url + q)
+          .map((res: Response) => res.json());
     }
-
-    getData(q: any) {
-        return this.http.get(this.apiUrl + q)
-          .map((res: Response) => res.json())
-          .subscribe(data => {
+    getResult(url: any, q: any) {
+        this.getData(url, q).subscribe(data => {
             console.log(data);
             this.data = data;
         });
     }
+
     onSubmit(form: any) {
         console.log('you submitted value: ', form);
         this.query = form.q + '&year_start=' + form.yearRange[0] + '&year_end=' + form.yearRange[1];
@@ -62,6 +54,15 @@ export class HomeViewComponent implements OnInit {
         }
         console.log(this.query);
         return this.query;
+    }
+
+    toggle() {
+        $('.toggleArea').toggle('down');
+        if (this.toggled) {
+            $('.pUp').switchClass('pUp', 'pDown', 500, 'swing', this.toggled = !this.toggled);
+        } else {
+            $('.pDown').switchClass('pDown', 'pUp', 500, 'swing', this.toggled = !this.toggled);
+        }
     }
 
 }

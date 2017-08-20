@@ -1,10 +1,10 @@
-<form #f="ngForm" class="searchFilter" (ngSubmit)="getData(onSubmit(f.value))">
+<form #f="ngForm" class="searchFilter" (ngSubmit)="getResult(apiUrl, onSubmit(f.value))">
     <input type="text" class="form-control" id="search-box" placeholder="Search" name="q" ngModel required>
-    <div (click)="toggleFilter();" class="filter">
-        <span class="filterPointerDown"></span>
+    <h4 (click)="toggle()" class="filter">
+        <span class="pointer pDown"></span>
         Filters:
-    </div>
-    <div class="filterArea" >
+    </h4>
+    <div class="toggleArea" >
         <input type="checkbox" name="mt_I" [ngModel]=true>Image<br>
         <input type="checkbox" name="mt_V" [ngModel]=true>Video<br>
         <nouislider [connect]="true"
@@ -16,7 +16,7 @@
     <button type="submit" class="btn btn-primary" [disabled]="!f.form.valid">Search</button>
 </form>
 
-<div class="content">
+<div class="content" *ngIf="data.collection">
     <div *ngFor="let i of data.collection.items">
         <div *ngFor="let d of i.data" class="item">
             <div *ngIf="d.media_type === 'video'" class="link">
