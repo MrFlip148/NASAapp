@@ -7,7 +7,7 @@ declare var $: any;
 @Component({
     selector: 'app-view-home',
     templateUrl: './home.view.html',
-    styleUrls: ['./home.view.scss']
+    styleUrls: ['./home.view.css']
 })
 export class HomeViewComponent implements OnInit {
     viewTitle = 'Home View';
@@ -22,6 +22,12 @@ export class HomeViewComponent implements OnInit {
         private http: Http
     ) {}
 
+    ngOnInit() {
+        // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+        // Add 'implements OnInit' to the class.
+        this.getData('moon&media_type=image,video'/* + '&year_start=2005&year_end=2006'*/);
+    }
+
     toggleFilter() {
         $('.filterArea').toggle('down');
         if (this.showFilter) {
@@ -29,12 +35,6 @@ export class HomeViewComponent implements OnInit {
         } else {
             $('.filterPointerDown').switchClass('filterPointerDown', 'filterPointerUp', 500, 'swing', this.showFilter = !this.showFilter);
         }
-    }
-
-    ngOnInit() {
-        // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-        // Add 'implements OnInit' to the class.
-        this.getData('moon&media_type=image,video&year_start=2005&year_end=2006');
     }
 
     getData(q: any) {

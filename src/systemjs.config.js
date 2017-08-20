@@ -25,7 +25,10 @@
 
       // other libraries
       'rxjs':                      'npm:rxjs',
-      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
+      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
+      css: 'node_modules/systemjs-plugin-css',
+      less: 'node_modules/systemjs-plugin-less',
+      lesscss: 'node_modules/less'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -34,12 +37,27 @@
         meta: {
           './*.js': {
             loader: 'systemjs-angular-loader.js'
+          },
+          '*.less': {
+            loader: 'less'
           }
         }
       },
       rxjs: {
         defaultExtension: 'js'
-      }
+      },
+      'node_modules/ng2-slider-component': {
+        main: 'ng2-slider.component.system.js',
+        defaultExtension: 'system.js'
+      },
+      lesscss: {
+        main: {
+          browser: './dist/less.min.js',
+          node: '@node/less'
+        }
+      },
+      css: { main: 'css.js' },
+      less: { main: 'less.js' }
     }
   });
 })(this);

@@ -13,7 +13,7 @@
 
 <div class="content">
     <div *ngFor="let i of data.collection.items">
-        <div *ngFor="let d of i.data">
+        <div *ngFor="let d of i.data" class="item">
             <div *ngIf="d.media_type === 'video'" class="link">
                 <a [routerLink]="['/Video', d.nasa_id]" >{{d.title}}</a>
             </div>
