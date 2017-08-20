@@ -13,6 +13,8 @@ export class HomeViewComponent implements OnInit {
     viewTitle = 'Home View';
     private apiUrl = 'https://images-api.nasa.gov/search?q=';
     private query: string;
+    yearRange: number[] = [2010, 2015];
+    
     data: any = {};
 
     dataLoaded = false;
@@ -25,7 +27,7 @@ export class HomeViewComponent implements OnInit {
     ngOnInit() {
         // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
         // Add 'implements OnInit' to the class.
-        this.getData('moon&media_type=image,video'/* + '&year_start=2005&year_end=2006'*/);
+        this.getData('moon&media_type=image,video' + '&year_start=2010&year_end=2015');
     }
 
     toggleFilter() {
@@ -47,7 +49,7 @@ export class HomeViewComponent implements OnInit {
     }
     onSubmit(form: any) {
         console.log('you submitted value: ', form);
-        this.query = form.q;
+        this.query = form.q + '&year_start=' + form.yearRange[0] + '&year_end=' + form.yearRange[1];
         if (form.mt_I !== false || form.mt_V !== false) {
             this.query += '&media_type=';
         }

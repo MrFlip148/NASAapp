@@ -7,6 +7,11 @@
     <div class="filterArea" >
         <input type="checkbox" name="mt_I" [ngModel]=true>Image<br>
         <input type="checkbox" name="mt_V" [ngModel]=true>Video<br>
+        <nouislider [connect]="true"
+            [min]="1950" [max]="2017" [step]="1"
+            [ngModel]="yearRange" name="yearRange"
+            [tooltips]="[ true, true ]"
+            style="margin-top: 3em;margin-bottom:1em;"></nouislider>
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="!f.form.valid">Search</button>
 </form>
