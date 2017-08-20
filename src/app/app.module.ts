@@ -11,6 +11,8 @@ import { PageNotFoundComponent } from './components/errors/page-not-found/page-n
 import { HeaderComponent } from './components/header/header.component';
 import { HomeViewComponent } from './components/views/home/home.view';
 import { GoBackComponent } from './components/go-back/go-back.component';
+import { ImageViewComponent } from './components/views/image-detail/image-detail.view';
+import { VideoViewComponent } from './components/views/video-detail/video-detail.view';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { GoBackComponent } from './components/go-back/go-back.component';
     PageNotFoundComponent,
     HeaderComponent,
     HomeViewComponent,
-    GoBackComponent
+    GoBackComponent,
+    ImageViewComponent,
+    VideoViewComponent
   ],
   imports: [
     BrowserModule,

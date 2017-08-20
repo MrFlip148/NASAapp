@@ -20,10 +20,10 @@
     <div *ngFor="let i of data.collection.items">
         <div *ngFor="let d of i.data" class="item">
             <div *ngIf="d.media_type === 'video'" class="link">
-                <a [routerLink]="['/Video', d.nasa_id]" >{{d.title}}</a>
+                <a [routerLink]="['/video', d.nasa_id]" >{{d.title}}</a>
             </div>
             <div *ngIf="d.media_type === 'image'" class="thumb">
-                <a [routerLink]="['/Image', d.nasa_id]">
+                <a [routerLink]="['/image', d.nasa_id]">
                     <img *ngFor="let l of i.links" [src]="l.href" >
                 </a>
             </div>
