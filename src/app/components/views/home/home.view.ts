@@ -25,7 +25,8 @@ export class HomeViewComponent implements OnInit {
     ngOnInit() {
         // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
         // Add 'implements OnInit' to the class.
-        this.getResult(this.apiUrl, 'moon&media_type=image,video&year_start=2010&year_end=2015');
+        // this.getResult(this.apiUrl, 'moon&media_type=image,video&year_start=2010&year_end=2015');
+        // uncomment above to get direct results on homepage load
     }
 
     getData(url: any, q: any) {
