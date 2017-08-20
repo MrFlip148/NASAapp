@@ -1,8 +1,16 @@
 <app-go-back></app-go-back>
-<h1>VIDEO</h1>
-<p>
-    NOTHING HERE YET
-</p>
+<div *ngIf="data.collection">
+    <div *ngFor="let vid of data.collection.items" style="text-align:center">
+        
+        <video *ngIf="vid.href.includes('~mobile' + '.mp4')" width="85%" controls preload crossorigin>
+            <source [src]="vid.href" type="video/mp4">
+            <track [src]="captions.location" label="English" kind="captions" srclang="en-us" default >
+        </video>
+    </div>
+</div>
+
+<p>{{ null }}</p>
+
 <h4 (click)="toggle()">
     <span class="pointer pDown"></span>
     METADATA

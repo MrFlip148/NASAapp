@@ -14,7 +14,9 @@ declare var $: any;
 export class VideoViewComponent implements OnInit {
     private apiAssetUrl = 'https://images-api.nasa.gov/asset/';
     private apiMetaUrl = 'https://images-api.nasa.gov/metadata/';
+    private apiCaptionUrl = 'https://images-api.nasa.gov/captions/';
     data: any = {};
+    captions: any = {};
     metaDataLoc: any = {};
     metaData: any = {};
 
@@ -33,6 +35,12 @@ export class VideoViewComponent implements OnInit {
             .subscribe(data => {
                 console.log(data);
                 this.data = data;
+            });
+        this.route.paramMap
+            .switchMap((params: ParamMap) => this.getData(this.apiCaptionUrl, params.get('nasa_id')))
+            .subscribe(data => {
+                console.log(data);
+                this.captions = data;
             });
         this.route.paramMap
             .switchMap((params: ParamMap) => this.getData(this.apiMetaUrl, params.get('nasa_id')))
