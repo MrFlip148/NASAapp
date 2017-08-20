@@ -1,4 +1,12 @@
-<h1 style="color:white">VIDEO</h1>
-<p style="color:white">
+<app-go-back></app-go-back>
+<h1>VIDEO</h1>
+<p>
     NOTHING HERE YET
 </p>
+<h4 (click)="toggle()">
+    <span class="pointer pDown"></span>
+    METADATA
+</h4>
+<pre class="toggleArea">
+    {{ metaData | json }}
+</pre>

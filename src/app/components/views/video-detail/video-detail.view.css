@@ -1,0 +1,12 @@
+.toggleArea {
+    display: none;
+}
+.pointer {
+    font-family: FontAwesome;
+}
+.pDown::before {
+    content: "\f103"
+}
+.pUp::before {
+    content: "\f102"
+}
