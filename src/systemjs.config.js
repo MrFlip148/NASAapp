@@ -27,7 +27,7 @@
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
       'nouislider': 'node_modules/nouislider',
-      'ng2-nouislider': 'node_modules/ng2-nouislider',
+      'ng2-nouislider': 'node_modules/ng2-nouislider'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {

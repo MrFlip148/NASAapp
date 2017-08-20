@@ -1,8 +1,10 @@
 <app-go-back></app-go-back>
-<h1>IMAGE</h1>
-<p>
-    NOTHING HERE YET
-</p>
+<div *ngIf="data.collection">
+    <div *ngFor="let img of data.collection.items">
+        <img *ngIf="img.href.includes('~orig')" [src]="img.href" class="img" style="width:100%;margin-bottom:15px;text-align:center;" (click)="toggleFullscreen()">
+        <img *ngIf="img.href.includes('~orig')" [src]="img.href" class="fullscreen" style="display:none;" (click)="toggleFullscreen()">
+    </div>
+</div>
 <h4 (click)="toggle()">
     <span class="pointer pDown"></span>
     METADATA

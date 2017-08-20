@@ -10,12 +10,13 @@
                 url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
 }
 html {
-  background: url(http://www.storywarren.com/wp-content/uploads/2016/09/space-1.jpg);
+  width: 100%;
+  height: 100%;
 }
 body {
   margin: 0;
   padding: 0;
-  background-color: transparent;
+  background: url(http://www.storywarren.com/wp-content/uploads/2016/09/space-1.jpg);
 }
 h1, h2, h3, h4, pre, p {
   color:rgb(255, 255, 255);
@@ -26,4 +27,22 @@ h1, h2, h3, h4 {
 pre {
   white-space: pre-wrap;
   background-color: grey;
+}
+
+#main {
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.overlay.active {
+  z-index: 10;
+  background-color: rgba(0,0,0,0.85);
+}
+body.overlayActive {
+  overflow: hidden;
 }

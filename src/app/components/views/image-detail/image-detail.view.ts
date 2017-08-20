@@ -64,4 +64,10 @@ export class ImageViewComponent implements OnInit {
             $('.pDown').switchClass('pDown', 'pUp', 500, 'swing', this.toggled = !this.toggled);
         }
     }
+
+    toggleFullscreen() {
+        $('.fullscreen').fadeToggle();
+        $('.overlay').toggleClass('active');
+        $('body').toggleClass('overlayActive');
+    }
 }
