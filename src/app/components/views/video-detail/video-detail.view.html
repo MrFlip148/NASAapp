@@ -4,7 +4,7 @@
         
         <video *ngIf="vid.href.includes('~mobile' + '.mp4')" width="85%" controls preload crossorigin>
             <source [src]="vid.href" type="video/mp4">
-            <track [src]="captions.location" label="English" kind="captions" srclang="en-us" default >
+            <track [src]="captions.location" label="English" kind="captions" srclang="en-us" default>
         </video>
     </div>
 </div>
